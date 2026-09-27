@@ -17,8 +17,9 @@ button{cursor:pointer}
 .logo{font-size:22px;font-weight:800;padding:0 10px 25px;padding-top:env(safe-area-inset-top,0px)}
 .logo small{display:block;color:var(--muted);font-size:11px;font-weight:500;margin-top:3px}
 .navcol{display:grid;gap:4px}
-.navcol button{border:0;background:none;text-align:left;padding:11px 12px;border-radius:9px;color:var(--muted);font-size:14px}
+.navcol button{display:flex;align-items:center;gap:8px;border:0;background:none;text-align:left;padding:11px 12px;border-radius:9px;color:var(--muted);font-size:14px;white-space:nowrap}
 .navcol button:hover,.navcol button.active{background:var(--panel2);color:var(--text);font-weight:700}
+.nicon{font-size:15px;flex:0 0 auto}
 .sidetools{display:grid;gap:7px;margin-top:30px}
 .sidetools select,.themebtn{width:100%;border:1px solid var(--line);background:var(--panel);color:var(--text);padding:8px 9px;border-radius:8px;text-align:left}
 .sidenote{color:var(--muted);font-size:11px;margin-top:20px;padding:0 10px}
@@ -84,4 +85,20 @@ input:focus,select:focus,button:focus-visible{outline:2px solid var(--accent);ou
 html[dir="rtl"] body{font-family:Tahoma,Arial,sans-serif}
 html[dir="rtl"] .sidebar{border-right:0;border-left:1px solid var(--line)}
 html[dir="rtl"] .navcol button{text-align:right}
-@media(max-width:850px){.sidebar{width:64px;padding:20px 8px}.logo{font-size:0}.logo::before{content:'L';font-size:22px;color:var(--text)}.logo small{display:none}.navcol button{font-size:0;text-align:center}.sidetools{display:none}.sidenote{display:none}main{padding:22px 16px}}
+@media(max-width:850px){
+  .app{flex-direction:column}
+  .sidebar{width:100%;display:flex;flex-wrap:nowrap;align-items:center;gap:10px;padding:calc(10px + env(safe-area-inset-top,0px)) 14px 10px;border-right:0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5;overflow-x:auto}
+  .logo{padding:0;font-size:16px;flex:0 0 auto}
+  .logo small{display:none}
+  .navcol{flex-direction:row;flex:0 0 auto;gap:2px}
+  .navcol button{padding:8px 10px;font-size:13px}
+  .sidetools{flex-direction:row;margin-top:0;gap:6px;flex:0 0 auto;width:auto}
+  .sidetools select,.themebtn{width:auto;padding:7px 9px;font-size:12px;white-space:nowrap}
+  .sidenote{display:none}
+  main{padding:20px 16px calc(40px + env(safe-area-inset-bottom,0px))}
+}
+@media(max-width:560px){
+  .navcol button .nlabel{display:none}
+  .navcol button{padding:8px}
+  .nicon{font-size:18px}
+}
